@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Tasks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Tasks</h1>
+
+    <form id="add-form" class="add-form" autocomplete="off">
+      <input id="task-input" type="text" placeholder="Add a new task..." />
+      <button type="submit">Add</button>
+    </form>
+
+    <div class="controls">
+      <div class="filters">
+        <button data-filter="all" class="filter active">All</button>
+        <button data-filter="active" class="filter">Active</button>
+        <button data-filter="completed" class="filter">Completed</button>
+      </div>
+      <button id="clear-completed" class="clear">Clear completed</button>
+    </div>
+
+    <ul id="task-list" class="task-list"></ul>
+
+    <footer class="footer">
+      <span id="items-left">0 items left</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
