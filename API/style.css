@@ -1,0 +1,11 @@
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#cls{
+  color: orange;
+  font-family: 'Courier New', Courier, monospace;
+}
