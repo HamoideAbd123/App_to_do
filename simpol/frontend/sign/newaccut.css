@@ -1,0 +1,31 @@
+.contaner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: aqua;
+  border-radius: 15px;
+
+}
+
+.contaner input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  width: 80%;
+}
+
+.contaner label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+.contaner button{
+  font-weight: bold;
+  background-color: rgb(59, 246, 59);
+  padding: 9px;
+  border-radius: 10px;
+  width: 50px;
+}

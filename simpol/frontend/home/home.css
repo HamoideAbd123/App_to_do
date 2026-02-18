@@ -1,0 +1,218 @@
+/* style.css */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../img/pexels-joshkjack-135018.jpg"); /* رابط أو اسم الصورة */
+  background-size: cover;        /* تجعل الصورة تغطي كامل الشاشة */
+  background-position: center;   /* تجعل الصورة في المنتصف */
+  background-repeat: no-repeat;  /* تمنع تكرار الصورة */
+  background-attachment: fixed;  /* تجعل الصورة ثابتة عند التمرير */
+}
+
+@media (max-width: 768px) {   /* تابلت */
+  .container {
+    width: 90%;
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .nav-links {
+    gap: 10px;
+    font-size: 0.9em;
+  }
+
+  .titel {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 480px) {   /* موبايل */
+  .nav-links {
+    display: none; /* يمكن لاحقاً نعمل menu */
+  }
+
+  #int {
+    font-size: 1em;
+  }
+
+  .container {
+    margin: 90px auto;
+    width: 92%;
+  }
+
+  .list ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.main-nav {
+  background: rgba(18, 161, 15, 0.8);
+  backdrop-filter: blur(6px);
+  margin-right: 10px;
+  margin: 0 10px ;
+  border-radius: 10px;
+  padding: 18px 5% ;
+  position: fixed;
+  top: 10px;
+  width: 98%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,2);
+
+  @media (max-width:768px) {
+  padding: 15px 20px ;
+  
+}
+}
+
+
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  color: white;
+  list-style: none;
+}
+
+.imglogo {
+  background: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+
+.container {
+  background: rgba(14, 204, 58, 0.7); /* شفافية 70% */
+  backdrop-filter: blur(4px);         /* تعطي تأثير زجاجي جميل */
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  border: 1px solid #dae71d;
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.toborder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.toborder label {
+  font-size: 2em;
+}
+
+.titel {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+#int {
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.but-search {
+  border: none;
+  border-radius: 8px;
+  background-color: #12a10f;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.but-search:hover {
+  background-color: #084604;
+}
+
+
+/* تنسيق قائمة المهام */
+
+.list ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.list ul li {
+  background-color: #e2ffe2;   /* لون واضح */
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;          /* يمنع تكسير التصميم */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+.btn {
+  background: #12a10f;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1em;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: red;
+}
+
+.btn-edit {
+  background: blue;
+}
+
+
+
+.prf {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.4em;
+  margin-top: 130px; /* لتفادي تغطية الـ nav */
+  background: rgba(0, 0, 0, 0.4); 
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
