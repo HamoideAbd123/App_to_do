@@ -82,7 +82,7 @@ def login(user: UserLogin):
     pwd_hash = hash_password(user.password)
     
     result = conn.execute(
-        "SELECT id, name, email FROM users WHERE email = ? AND password_hash = ?", 
+        "SELECT id, name, email, last_name, age, gender, country FROM users WHERE email = ? AND password_hash = ?", 
         (user.email, pwd_hash)
     ).fetchone()
     

@@ -24,15 +24,18 @@ def init_db():
         )
     """)
     
-    # Try adding new fields backwards-compatibly to existing table
-    try:
-        cursor.execute("ALTER TABLE users ADD COLUMN last_name TEXT;")
-        cursor.execute("ALTER TABLE users ADD COLUMN age INTEGER;")
-        cursor.execute("ALTER TABLE users ADD COLUMN gender TEXT;")
-        cursor.execute("ALTER TABLE users ADD COLUMN country TEXT;")
-    except sqlite3.OperationalError:
-        # Columns likely already exist
-        pass
+    # Try adding new fields backwards-compatibly to existing table safely
+    new_columns = [
+        "last_name TEXT",
+        "age INTEGER",
+        "gender TEXT",
+        "country TEXT"
+    ]
+    for col in new_columns:
+        try:
+            cursor.execute(f"ALTER TABLE users ADD COLUMN {col};")
+        except sqlite3.OperationalError:
+            pass
     
     # Create tasks table linked to user_id
     cursor.execute("""
