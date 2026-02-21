@@ -1,5 +1,5 @@
 /* style.css */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,14 +8,21 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../img/pexels-joshkjack-135018.jpg"); /* رابط أو اسم الصورة */
-  background-size: cover;        /* تجعل الصورة تغطي كامل الشاشة */
-  background-position: center;   /* تجعل الصورة في المنتصف */
-  background-repeat: no-repeat;  /* تمنع تكرار الصورة */
-  background-attachment: fixed;  /* تجعل الصورة ثابتة عند التمرير */
+  background-image: url("../img/pexels-joshkjack-135018.jpg");
+  /* رابط أو اسم الصورة */
+  background-size: cover;
+  /* تجعل الصورة تغطي كامل الشاشة */
+  background-position: center;
+  /* تجعل الصورة في المنتصف */
+  background-repeat: no-repeat;
+  /* تمنع تكرار الصورة */
+  background-attachment: fixed;
+  /* تجعل الصورة ثابتة عند التمرير */
 }
 
-@media (max-width: 768px) {   /* تابلت */
+@media (max-width: 768px) {
+
+  /* تابلت */
   .container {
     width: 90%;
     margin-left: 0;
@@ -32,9 +39,12 @@ body {
   }
 }
 
-@media (max-width: 480px) {   /* موبايل */
+@media (max-width: 480px) {
+
+  /* موبايل */
   .nav-links {
-    display: none; /* يمكن لاحقاً نعمل menu */
+    display: none;
+    /* يمكن لاحقاً نعمل menu */
   }
 
   #int {
@@ -64,7 +74,7 @@ body {
   top: 10px;
   width: 98%;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width:768px) {
@@ -101,17 +111,20 @@ body {
 
 
 .container {
-  background: rgba(14, 204, 58, 0.7); /* شفافية 70% */
-  backdrop-filter: blur(4px);         /* تعطي تأثير زجاجي جميل */
+  background: rgba(14, 204, 58, 0.7);
+  /* شفافية 70% */
+  backdrop-filter: blur(4px);
+  /* تعطي تأثير زجاجي جميل */
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80%;
   border: 1px solid #dae71d;
   border-radius: 10px;
-  margin: 100px auto 0; /* Centered instead of 100px left */
+  margin: 100px auto 0;
+  /* Centered instead of 100px left */
 }
 
 .toborder {
@@ -165,14 +178,16 @@ body {
 }
 
 .list ul li {
-  background-color: #e2ffe2;   /* لون واضح */
+  background-color: #e2ffe2;
+  /* لون واضح */
   width: 100%;
   margin: 8px 0;
   padding: 12px;
   border-radius: 6px;
   font-size: 1em;
   display: flex;
-  flex-wrap: wrap;          /* يمنع تكسير التصميم */
+  flex-wrap: wrap;
+  /* يمنع تكسير التصميم */
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
@@ -208,8 +223,9 @@ body {
   text-align: center;
   line-height: 1.7;
   font-size: 1.4em;
-  margin-top: 130px; /* لتفادي تغطية الـ nav */
-  background: rgba(0, 0, 0, 0.4); 
+  margin-top: 130px;
+  /* لتفادي تغطية الـ nav */
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   backdrop-filter: blur(5px);
   width: 80%;
@@ -219,31 +235,62 @@ body {
 
 /* ── Dark Mode Toggle & Styling ───────────────────────────── */
 #theme-toggle {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
 }
-#theme-toggle:hover { background: rgba(255,255,255,0.2); }
+
+#theme-toggle.mode-light {
+  background-color: #2c3e50;
+  /* Dark moon color */
+  color: white;
+}
+
+#theme-toggle.mode-light:hover {
+  background-color: #1a252f;
+}
+
+#theme-toggle.mode-dark {
+  background-color: #f1c40f;
+  /* Golden sun color */
+  color: #333;
+}
+
+#theme-toggle.mode-dark:hover {
+  background-color: #e67e22;
+}
 
 body.dark-mode {
   background-color: #121212 !important;
-  background-image: none !important; /* Overrides the background image in dark mode */
+  background-image: none !important;
+  /* Overrides the background image in dark mode */
   color: #e0e0e0;
 }
-body.dark-mode .container, body.dark-mode .prf {
+
+body.dark-mode .container,
+body.dark-mode .prf {
   background: rgba(40, 40, 40, 0.9);
   border-color: #444;
 }
-body.dark-mode .list ul li, body.dark-mode .profile-card, body.dark-mode .dash-card, body.dark-mode .signout-card {
+
+body.dark-mode .list ul li,
+body.dark-mode .profile-card,
+body.dark-mode .dash-card,
+body.dark-mode .signout-card {
   background-color: #2c2c2c;
   color: #fff;
 }
+
 body.dark-mode .main-nav {
   background: rgba(20, 20, 20, 0.9);
 }
-body.dark-mode .task, body.dark-mode h1, body.dark-mode h2, body.dark-mode label {
+
+body.dark-mode .task,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode label {
   color: #fff;
 }
