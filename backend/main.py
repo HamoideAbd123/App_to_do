@@ -32,6 +32,10 @@ def get_current_user_id(user_id: Optional[str] = Header(None)):
 # ── Models ────────────────────────────────────────────────
 class UserRegister(BaseModel):
     name: str
+    last_name: Optional[str] = None
+    age: Optional[int] = None
+    gender: Optional[str] = None
+    country: Optional[str] = None
     email: str
     password: str
 
@@ -62,8 +66,8 @@ def register(user: UserRegister):
     pwd_hash = hash_password(user.password)
     
     cursor = conn.execute(
-        "INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)",
-        (user.name, user.email, pwd_hash)
+        "INSERT INTO users (name, last_name, age, gender, country, email, password_hash) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (user.name, user.last_name, user.age, user.gender, user.country, user.email, pwd_hash)
     )
     conn.commit()
     new_id = cursor.lastrowid
