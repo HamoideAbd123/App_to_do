@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Out - Simpol</title>
+    <link rel="stylesheet" href="../home/home.css">
+    <style>
+        .signout-card {
+            text-align: center;
+            max-width: 400px;
+            margin: 80px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .signout-card h1 {
+            margin-bottom: 10px;
+        }
+
+        .signout-card p {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../home/home.html" class="logo">MY SITE</a>
+            <button id="theme-toggle">Dark / Light</button>
+            <ul class="nav-links">
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../allTasks/alltasks.html">All Tasks</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
+                <li><a href="./sing_in.html">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="signout-card">
+            <h1>👋 You are signed out</h1>
+            <p>Thank you for using Simpol!</p>
+            <br>
+            <a href="./sing_in.html" class="but-search"
+                style="text-decoration:none; padding: 10px 24px; background:#4a90e2; color:white; border-radius:8px;">Sign
+                In Again</a>
+        </div>
+    </div>
+    <script>
+        // Securely log out the user by clearing local storage
+        localStorage.removeItem("user");
+    </script>
+</body>
+
+</html>

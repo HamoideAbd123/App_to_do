@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Simpol</title>
+    <link rel="stylesheet" href="../home/home.css">
+    <style>
+        .profile-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 400px;
+            margin: 40px auto;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #4a90e2;
+            color: white;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .profile-card h2 {
+            margin: 0 0 6px;
+        }
+
+        .profile-card p {
+            color: gray;
+            margin: 4px 0;
+        }
+
+        .profile-stat {
+            margin-top: 20px;
+            background: #f0f4ff;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../home/home.html" class="logo">MY SITE</a>
+            <button id="theme-toggle">Dark / Light</button>
+            <ul class="nav-links">
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../allTasks/alltasks.html">All Tasks</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="../sign/sing_out.html">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-avatar">👤</div>
+            <h2 id="profile-name">Loading...</h2>
+            <p id="profile-email">---</p>
+            <div class="profile-stat">
+                📝 Total Tasks: <strong id="task-count">0</strong>
+            </div>
+        </div>
+    </div>
+    <script>
+        const userRaw = localStorage.getItem("user");
+        if (!userRaw) window.location.href = "../sign/sing_in.html";
+        const user = JSON.parse(userRaw);
+
+        document.getElementById('profile-name').textContent = user.name;
+        document.getElementById('profile-email').textContent = user.email;
+
+        const API = "http://127.0.0.1:8000";
+        fetch(`${API}/tasks?user_id=${user.id}`).then(res => res.json()).then(tasks => {
+            document.getElementById('task-count').textContent = tasks.length || 0;
+        });
+    </script>
+    <script src="../home/theme.js"></script>
+</body>
+
+</html>

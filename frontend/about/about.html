@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Simpol</title>
+    <link rel="stylesheet" href="../home/home.css">
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../home/home.html" class="logo">MY SITE</a>
+            <button id="theme-toggle">Dark / Light</button>
+            <ul class="nav-links">
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../allTasks/alltasks.html">All Tasks</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
+                <li><a href="../sign/sing_out.html">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="toborder">
+            <h1 class="titel">About This App</h1>
+            <div class="prf">
+                <p>
+                    <strong>Simpol To Do App</strong> is a simple and clean task management app.
+                    It helps you organize your daily tasks easily. You can add, edit, and delete tasks.
+                    All tasks are saved in your browser so they stay even after you close it.
+                </p>
+                <p>Built with: <strong>HTML, CSS, JavaScript</strong></p>
+                <p>Version: <strong>1.0.0</strong></p>
+            </div>
+        </div>
+        <script>
+            // Ensure only logged-in users enter this page
+            const userRaw = localStorage.getItem("user");
+            if (!userRaw) window.location.href = "../sign/sing_in.html";
+        </script>
+        <script src="../home/theme.js"></script>
+</body>
+
+</html>

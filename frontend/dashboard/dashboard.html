@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Simpol</title>
+    <link rel="stylesheet" href="../home/home.css">
+    <style>
+        .dashboard-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px auto;
+            max-width: 700px;
+        }
+
+        .dash-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .dash-card .icon {
+            font-size: 2.5rem;
+        }
+
+        .dash-card .count {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .dash-card .label {
+            color: gray;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../home/home.html" class="logo">MY SITE</a>
+            <ul class="nav-links">
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../allTasks/alltasks.html">All Tasks</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
+                <li><a href="../sign/sing_out.html">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="toborder">
+            <h1 class="titel">Dashboard</h1>
+            <div class="dashboard-grid">
+                <div class="dash-card">
+                    <div class="icon">📝</div>
+                    <div class="count" id="total-count">0</div>
+                    <div class="label">Total Tasks</div>
+                </div>
+                <div class="dash-card">
+                    <div class="icon">📅</div>
+                    <div class="count" id="today-count">0</div>
+                    <div class="label">Added Today</div>
+                </div>
+            </div>
+            <p style="text-align:center; color:gray;">
+                Go to <a href="../home/home.html">Home</a> to manage your tasks.
+            </p>
+        </div>
+    </div>
+    <script>
+        const userRaw = localStorage.getItem("user");
+        if (!userRaw) window.location.href = "../sign/sing_in.html";
+        const USER_ID = JSON.parse(userRaw).id;
+        const API = "http://127.0.0.1:8000";
+
+        fetch(`${API}/tasks?user_id=${USER_ID}`)
+            .then(res => res.json())
+            .then(tasks => {
+                document.getElementById('total-count').textContent = tasks.length || 0;
+
+                const today = new Date().toLocaleDateString();
+                const todayTasks = tasks.filter(t => t.date && t.date.includes(today));
+                document.getElementById('today-count').textContent = todayTasks.length;
+            })
+            .catch(err => console.error(err));
+    </script>
+    <script src="../home/theme.js"></script>
+</body>
+
+</html>

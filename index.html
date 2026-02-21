@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header react tutorial</title>
+    <title>Simpol To Do App</title>
 </head>
+
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script>
+        // Redirect based on login status
+        const user = localStorage.getItem("user");
+        if (user) {
+            window.location.href = "./frontend/home/home.html";
+        } else {
+            window.location.href = "./frontend/sign/sing_in.html";
+        }
+    </script>
 </body>
+
 </html>

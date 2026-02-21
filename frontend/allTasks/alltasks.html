@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tasks - Simpol</title>
+    <link rel="stylesheet" href="../home/home.css">
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="../home/home.html" class="logo">MY SITE</a>
+            <button id="theme-toggle">Dark / Light</button>
+            <ul class="nav-links">
+                <li><a href="../home/home.html">Home</a></li>
+                <li><a href="../allTasks/alltasks.html">All Tasks</a></li>
+                <li><a href="../profile/profile.html">Profile</a></li>
+                <li><a href="../sign/sing_out.html">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="toborder">
+            <h1 class="titel">All Tasks</h1>
+            <p id="empty-msg" style="color: gray; text-align:center;">No tasks saved yet. Go to <a
+                    href="../home/home.html">Home</a> to add tasks.</p>
+            <ul id="all-tasks-list"></ul>
+        </div>
+    </div>
+    <script>
+        const userRaw = localStorage.getItem("user");
+        if (!userRaw) window.location.href = "../sign/sing_in.html";
+        const USER_ID = JSON.parse(userRaw).id;
+
+        const list = document.getElementById('all-tasks-list');
+        const emptyMsg = document.getElementById('empty-msg');
+        const API = "http://127.0.0.1:8000";
+
+        async function loadAllTasks() {
+            try {
+                const res = await fetch(`${API}/tasks?user_id=${USER_ID}`);
+                const tasks = await res.json();
+
+                if (tasks.length === 0) {
+                    emptyMsg.style.display = 'block';
+                } else {
+                    emptyMsg.style.display = 'none';
+                    tasks.forEach((t, i) => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<span class="task">${i + 1}. ${t.text}</span> <span class="date" style="color:blue; margin-left:10px;">${t.date}</span>`;
+                        list.appendChild(li);
+                    });
+                }
+            } catch (err) {
+                emptyMsg.textContent = "Error loading tasks from server.";
+                emptyMsg.style.display = 'block';
+            }
+        }
+
+        loadAllTasks();
+    </script>
+    <script src="../home/theme.js"></script>
+</body>
+
+</html>
