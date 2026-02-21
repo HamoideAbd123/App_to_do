@@ -9,20 +9,13 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("../img/pexels-joshkjack-135018.jpg");
-  /* رابط أو اسم الصورة */
   background-size: cover;
-  /* تجعل الصورة تغطي كامل الشاشة */
   background-position: center;
-  /* تجعل الصورة في المنتصف */
   background-repeat: no-repeat;
-  /* تمنع تكرار الصورة */
   background-attachment: fixed;
-  /* تجعل الصورة ثابتة عند التمرير */
 }
 
 @media (max-width: 768px) {
-
-  /* تابلت */
   .container {
     width: 90%;
     margin-left: 0;
@@ -40,11 +33,8 @@ body {
 }
 
 @media (max-width: 480px) {
-
-  /* موبايل */
   .nav-links {
     display: none;
-    /* يمكن لاحقاً نعمل menu */
   }
 
   #int {
@@ -112,9 +102,7 @@ body {
 
 .container {
   background: rgba(14, 204, 58, 0.7);
-  /* شفافية 70% */
   backdrop-filter: blur(4px);
-  /* تعطي تأثير زجاجي جميل */
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -124,7 +112,6 @@ body {
   border: 1px solid #dae71d;
   border-radius: 10px;
   margin: 100px auto 0;
-  /* Centered instead of 100px left */
 }
 
 .toborder {
@@ -179,7 +166,6 @@ body {
 
 .list ul li {
   background-color: #e2ffe2;
-  /* لون واضح */
   width: 100%;
   margin: 8px 0;
   padding: 12px;
@@ -187,7 +173,6 @@ body {
   font-size: 1em;
   display: flex;
   flex-wrap: wrap;
-  /* يمنع تكسير التصميم */
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
@@ -224,7 +209,6 @@ body {
   line-height: 1.7;
   font-size: 1.4em;
   margin-top: 130px;
-  /* لتفادي تغطية الـ nav */
   background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   backdrop-filter: blur(5px);

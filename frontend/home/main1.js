@@ -13,9 +13,6 @@ if (!userRaw) {
 const user = JSON.parse(userRaw);
 const USER_ID = user.id;
 
-// Optional: Display username somewhere
-console.log(`Welcome, ${user.name}`);
-
 // ── Helpers ───────────────────────────────────────────────
 
 function createTaskElement(task) {
